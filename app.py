@@ -4,7 +4,7 @@ import base64
 import datetime
 from flask import Flask, render_template, Response, jsonify
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 def detect_adulteration():
     # Create a VideoCapture object to access the camera
@@ -91,5 +91,5 @@ def index():
     return render_template('contamination.html', results=results)
 
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)
