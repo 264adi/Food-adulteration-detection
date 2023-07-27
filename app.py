@@ -91,5 +91,3 @@ def index():
     return render_template('contamination.html', results=results)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
