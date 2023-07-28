@@ -1,8 +1,7 @@
 import cv2
 import numpy as np
-import base64
 import datetime
-from flask import Flask, render_template, Response, jsonify
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -12,7 +11,7 @@ def detect_adulteration():
 
     while True:
         # Capture a frame from the camera
-        ret, frame = cap.read()
+        _, frame = cap.read()
 
         # Convert the frame to HSV color space
         hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
@@ -87,7 +86,5 @@ def index():
     red_percentage=red_percentage, blue_percentage=blue_percentage,
     green_percentage=green_percentage, yellow_percentage=yellow_percentage)
 
-    # Render the 'index.html' template and pass the results to it
-    return render_template('contamination.html', results=results)
-
-
+if __name__ == '__main__':
+    app.run()
