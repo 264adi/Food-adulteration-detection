@@ -8,5 +8,5 @@ MarkupSafe
 numpy
 opencv-python
 packaging
-waitress
+Gunicorn
 Werkzeug
